@@ -1,0 +1,14 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+register:
+    path: /register
+    controller: ../src/Controller/RegistrationController::register
+
+login:
+    path: /login
+    controller: ../src/Controller/LogiController::index
+
+
+

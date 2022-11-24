@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{titulo}}
+{% endblock %}
+
+{% block body %}
+<div>	
+	<div><h1 class="text-center">{{ titulo}}</h1></div>
+</div>
+
+	<table class="table table-striped table-hover">
+		<thead>
+			<tr class="table-primary text-center">
+				<th scope="col">#</th>
+				<th scope="col">T&iacute;tulo</th>
+				<th scope="col">Tags</th>
+				<th scope="col">Descripci&oacute;n</th>
+                <th scope="col">P&uacute;blico</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in notas %}
+				
+				<tr>
+					<th scope="row">{{ item.id }}</th>
+					<td>{{ item.titulo }}</td>
+					<td>{{ item.tags }}</td>
+					<td>{{ item.descripcion }}</td>
+                    <td>{% if item.publico %} Si {% else %} No {% endif %}</td>                    
+				</tr>
+
+			{% endfor %}
+
+			{% for item in publicas %}
+				
+				<tr>
+					<th scope="row">{{ item.id }}</th>
+					<td>{{ item.titulo }}</td>
+					<td>{{ item.tags }}</td>
+					<td>{{ item.descripcion }}</td>
+                    <td>{% if item.publico %} Si {% else %} No {% endif %}</td>                    
+				</tr>
+
+			{% endfor %}
+
+		</tbody>
+	</table>
+
+
+{% endblock %}

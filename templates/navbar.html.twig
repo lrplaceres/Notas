@@ -1,0 +1,50 @@
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+	<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd;">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{ path('app_nota')}}">Notas</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="{{ path('app_nota')}}">Mis Notas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="{{ path('app_nota_publica') }}">P&uacute;blicas</a>
+					</li>
+					<li class="nav-item ">
+						<a class="nav-link" href="{{ path('app_nota_eliminada') }}">Eliminadas</a>
+					</li>
+				</ul>
+
+				<form class="d-flex" role="search" method="post" action="{{ path('app_nota_busqueda') }}">
+					<input name="param" class="form-control me-2" type="search" placeholder="Criterio de búsqueda" aria-label="Search">
+					<button class="btn btn-success" type="submit">Buscar</button>
+				</form>
+
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+							Hola:
+							{{ app.user.email }}
+
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a class="dropdown-item" href="{{ path('app_change_passw') }}">Cambiar contrase&ntilde;a</a>
+							</li>							
+							<li><hr class="dropdown-divider"></li>
+							<li>
+								<a href="{{path('app_logout')}}" class="dropdown-item">Salir</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+{% endif %}

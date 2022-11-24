@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar Nota
+{% endblock %}
+
+{% block body %}
+	<h1 class="text-center">Editar Nota</h1>
+
+	{{ form_start(form) }}
+	{{ form_widget(form) }}
+	{{ form_end(form) }}
+
+	<div class="row">
+
+		<div class="col"></div>
+
+		<div class="col">
+			<form method="post" action="{{ path('app_nota_delete_soft', {'id': nota.id}) }}" onsubmit="return confirm('¿Está seguro de eliminar este elemento?');">
+				<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ nota.id) }}">
+				<button class="btn btn-danger">Eliminar</button>
+			</form>
+		</div>
+	</div>
+
+
+	{# {{ include('prueba/_delete_form.html.twig') }}   #}
+{% endblock %}
